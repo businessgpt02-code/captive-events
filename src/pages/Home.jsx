@@ -152,8 +152,8 @@ const Home = () => {
             className="mt-10 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6"
           >
             <Link
-              to="#"
-              className="group relative inline-flex items-center justify-center cursor-none w-full sm:w-auto pointer-events-none"
+              to="/contact"
+              className="group relative inline-flex items-center justify-center cursor-none w-full sm:w-auto"
               aria-label="Start planning an event with Captive Events"
             >
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-red-600 via-orange-500 to-yellow-400 blur-xl opacity-40 group-hover:opacity-100 group-hover:blur-2xl transition-all duration-700"></div>
@@ -169,7 +169,7 @@ const Home = () => {
                 <ArrowRight size={20} className="relative z-10 text-white group-hover:translate-x-1 transition-transform duration-300 drop-shadow-md" />
               </motion.div>
             </Link>
-            <MagneticButton variant="outline" className="text-base w-full sm:w-auto px-8 py-4 flex items-center space-x-2 pointer-events-none">
+            <MagneticButton variant="outline" className="text-base w-full sm:w-auto px-8 py-4 flex items-center space-x-2">
               <Play size={18} className="fill-current" />
               <span>Showreel</span>
             </MagneticButton>
@@ -195,7 +195,7 @@ const Home = () => {
               transition={{ duration: 0.8 }}
               className="flex flex-col items-start"
             >
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-brand-orange mb-4 inline-block drop-shadow-md ml-1">
+              <span className="text-xs font-bold uppercase tracking-[0.25em] text-brand-orange mb-4 inline-block drop-shadow-md ml-2">
                 WHO WE ARE
               </span>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black uppercase tracking-tight text-white mb-4 leading-[1.1]">
@@ -222,7 +222,7 @@ const Home = () => {
               </div>
 
               {/* Premium CTA Button */}
-              <Link to="#" className="group relative inline-flex items-center justify-center mt-12 cursor-none pointer-events-none">
+              <Link to="/about" className="group relative inline-flex items-center justify-center mt-12 cursor-none">
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-red-600 via-orange-500 to-yellow-400 blur-xl opacity-40 group-hover:opacity-100 group-hover:blur-2xl transition-all duration-700"></div>
                 
                 <motion.div
@@ -459,7 +459,7 @@ const Home = () => {
           </div>
 
           <div className="mt-12 flex justify-center">
-            <Link to="#" className="group relative inline-flex items-center justify-center cursor-none pointer-events-none">
+            <Link to="/services" className="group relative inline-flex items-center justify-center cursor-none">
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-red-600 via-orange-500 to-yellow-400 blur-xl opacity-40 group-hover:opacity-100 group-hover:blur-2xl transition-all duration-700"></div>
               
               <motion.div
@@ -685,7 +685,7 @@ const Home = () => {
 
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row items-center gap-6 w-full sm:w-auto">
-                <Link to="#" className="group relative inline-flex items-center justify-center w-full sm:w-auto cursor-none pointer-events-none">
+                <Link to="/contact" className="group relative inline-flex items-center justify-center w-full sm:w-auto cursor-none">
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-brand-red via-brand-orange to-brand-yellow blur-xl opacity-40 group-hover:opacity-90 group-hover:blur-2xl transition-all duration-700"></div>
                   <motion.div
                     whileHover={{ scale: 1.03 }}
@@ -698,7 +698,7 @@ const Home = () => {
                   </motion.div>
                 </Link>
 
-                <Link to="#" className="group relative inline-flex items-center gap-2 cursor-none text-white hover:text-brand-orange transition-colors duration-300 py-3 px-4 font-bold uppercase tracking-wider text-sm pointer-events-none">
+                <Link to="/portfolio" className="group relative inline-flex items-center gap-2 cursor-none text-white hover:text-brand-orange transition-colors duration-300 py-3 px-4 font-bold uppercase tracking-wider text-sm">
                   <span>Explore Portfolio</span>
                   <span className="relative overflow-hidden w-5 h-5 flex items-center justify-center">
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />

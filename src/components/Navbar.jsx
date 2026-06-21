@@ -40,7 +40,7 @@ const Navbar = () => {
     >
       <div className="glass-heavy px-6 py-2.5 rounded-full flex justify-between items-center w-full max-w-6xl shadow-2xl">
         <Link to="/" className="flex items-center mr-8">
-          <img src="/logo.png" alt="Captive Events Logo" className="h-6 md:h-8 w-auto object-contain" />
+          <img src="/logo.png" alt="Captive Events Logo" className="h-8 md:h-12 w-auto object-contain" />
         </Link>
 
         {/* Desktop Menu */}
@@ -48,15 +48,15 @@ const Navbar = () => {
           {navLinks.map((link) => (
             <Link
               key={link.name}
-              to={link.name === 'Home' ? link.path : '#'}
+              to={link.path}
               className={`font-sans font-medium transition-colors hover:text-brand-orange text-sm uppercase tracking-widest ${
                 location.pathname === link.path ? 'text-brand-orange' : 'text-gray-300'
-              } ${link.name !== 'Home' ? 'pointer-events-none' : ''}`}
+              }`}
             >
               {link.name}
             </Link>
           ))}
-          <Link to="#" className="pointer-events-none">
+          <Link to="/contact">
             <MagneticButton variant="primary" className="py-2 px-5 text-sm">Plan Event</MagneticButton>
           </Link>
         </div>
@@ -75,17 +75,17 @@ const Navbar = () => {
           {navLinks.map((link) => (
             <Link
               key={link.name}
-              to={link.name === 'Home' ? link.path : '#'}
+              to={link.path}
               onClick={() => setIsOpen(false)}
               className={`text-lg font-display font-bold uppercase tracking-wider ${
                 location.pathname === link.path ? 'text-brand-orange' : 'text-white hover:text-brand-teal'
-              } ${link.name !== 'Home' ? 'pointer-events-none' : ''}`}
+              }`}
             >
               {link.name}
             </Link>
           ))}
           <div className="pt-4 mt-2 border-t border-white/10">
-            <Link to="#" onClick={() => setIsOpen(false)} className="pointer-events-none">
+            <Link to="/contact" onClick={() => setIsOpen(false)}>
               <MagneticButton className="w-full">Plan Event</MagneticButton>
             </Link>
           </div>
