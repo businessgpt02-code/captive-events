@@ -831,26 +831,22 @@ const About = () => {
 
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row items-center gap-6 w-full sm:w-auto">
-                <Link to="/contact" className="group relative inline-flex items-center justify-center w-full sm:w-auto cursor-none">
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-brand-red via-brand-orange to-brand-yellow blur-xl opacity-40 group-hover:opacity-90 group-hover:blur-2xl transition-all duration-700"></div>
-                  <motion.div
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.97 }}
+                <div className="group relative inline-flex items-center justify-center w-full sm:w-auto cursor-default">
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-brand-red via-brand-orange to-brand-yellow blur-xl opacity-30 transition-all duration-700"></div>
+                  <div
                     className="relative px-10 py-5 bg-gradient-to-r from-brand-red via-brand-orange to-brand-yellow rounded-full overflow-hidden flex items-center justify-center gap-3 border border-white/20 shadow-2xl w-full sm:w-auto"
                   >
-                    <div className="absolute inset-0 -translate-x-full group-hover:animate-shimmer bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12"></div>
                     <span className="relative z-10 text-white font-bold tracking-wide uppercase text-sm drop-shadow-md">Start Planning</span>
-                    <ArrowRight size={20} className="relative z-10 text-white group-hover:translate-x-1.5 transition-transform duration-300 drop-shadow-md" />
-                  </motion.div>
-                </Link>
+                    <ArrowRight size={20} className="relative z-10 text-white drop-shadow-md" />
+                  </div>
+                </div>
 
-                <Link to="/portfolio" className="group relative inline-flex items-center gap-2 cursor-none text-white hover:text-brand-orange transition-colors duration-300 py-3 px-4 font-bold uppercase tracking-wider text-sm">
+                <div className="group relative inline-flex items-center gap-2 cursor-default text-gray-500 py-3 px-4 font-bold uppercase tracking-wider text-sm">
                   <span>Explore Portfolio</span>
                   <span className="relative overflow-hidden w-5 h-5 flex items-center justify-center">
-                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
+                    <ArrowRight size={16} />
                   </span>
-                  <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-brand-orange scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-                </Link>
+                </div>
               </div>
             </div>
 

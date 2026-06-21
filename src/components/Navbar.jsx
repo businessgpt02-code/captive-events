@@ -45,20 +45,28 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              className={`font-sans font-medium transition-colors hover:text-brand-orange text-sm uppercase tracking-widest ${
-                location.pathname === link.path ? 'text-brand-orange' : 'text-gray-300'
-              }`}
-            >
-              {link.name}
-            </Link>
-          ))}
-          <Link to="/contact">
-            <MagneticButton variant="primary" className="py-2 px-5 text-sm">Plan Event</MagneticButton>
-          </Link>
+          {navLinks.map((link) => {
+            const isFunctional = link.path === '/' || link.path === '/about';
+            return isFunctional ? (
+              <Link
+                key={link.name}
+                to={link.path}
+                className={`font-sans font-medium transition-colors hover:text-brand-orange text-sm uppercase tracking-widest ${
+                  location.pathname === link.path ? 'text-brand-orange' : 'text-gray-300'
+                }`}
+              >
+                {link.name}
+              </Link>
+            ) : (
+              <span
+                key={link.name}
+                className="font-sans font-medium text-gray-500 cursor-default text-sm uppercase tracking-widest"
+              >
+                {link.name}
+              </span>
+            );
+          })}
+          <MagneticButton variant="gradient" className="py-2 px-5 text-sm cursor-default">Book Now</MagneticButton>
         </div>
 
         {/* Mobile Menu Button */}
@@ -72,22 +80,30 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden absolute top-20 left-4 right-4 glass-heavy rounded-2xl border border-white/10 p-6 flex flex-col space-y-4 shadow-2xl">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              onClick={() => setIsOpen(false)}
-              className={`text-lg font-display font-bold uppercase tracking-wider ${
-                location.pathname === link.path ? 'text-brand-orange' : 'text-white hover:text-brand-teal'
-              }`}
-            >
-              {link.name}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isFunctional = link.path === '/' || link.path === '/about';
+            return isFunctional ? (
+              <Link
+                key={link.name}
+                to={link.path}
+                onClick={() => setIsOpen(false)}
+                className={`text-lg font-display font-bold uppercase tracking-wider ${
+                  location.pathname === link.path ? 'text-brand-orange' : 'text-white hover:text-brand-teal'
+                }`}
+              >
+                {link.name}
+              </Link>
+            ) : (
+              <span
+                key={link.name}
+                className="text-lg font-display font-bold uppercase tracking-wider text-gray-600 cursor-default"
+              >
+                {link.name}
+              </span>
+            );
+          })}
           <div className="pt-4 mt-2 border-t border-white/10">
-            <Link to="/contact" onClick={() => setIsOpen(false)}>
-              <MagneticButton className="w-full">Plan Event</MagneticButton>
-            </Link>
+            <MagneticButton variant="gradient" className="w-full cursor-default">Book Now</MagneticButton>
           </div>
         </div>
       )}

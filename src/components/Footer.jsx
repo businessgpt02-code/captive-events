@@ -48,10 +48,10 @@ const Footer = () => {
             <h4 className="text-white font-display font-bold mb-6 tracking-wide">Quick Links</h4>
             <ul className="space-y-3">
               <li><Link to="/about" className="text-gray-400 hover:text-brand-orange transition-colors">About Us</Link></li>
-              <li><Link to="/services" className="text-gray-400 hover:text-brand-orange transition-colors">Our Services</Link></li>
-              <li><Link to="/portfolio" className="text-gray-400 hover:text-brand-orange transition-colors">Portfolio</Link></li>
-              <li><Link to="/blogs" className="text-gray-400 hover:text-brand-orange transition-colors">Blogs</Link></li>
-              <li><Link to="/contact" className="text-gray-400 hover:text-brand-orange transition-colors">Contact</Link></li>
+              <li><span className="text-gray-600 cursor-default">Our Services</span></li>
+              <li><span className="text-gray-600 cursor-default">Portfolio</span></li>
+              <li><span className="text-gray-600 cursor-default">Blogs</span></li>
+              <li><span className="text-gray-600 cursor-default">Contact</span></li>
             </ul>
           </div>
 
@@ -59,11 +59,11 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-display font-bold mb-6 tracking-wide">Our Services</h4>
             <ul className="space-y-3">
-              <li><Link to="/services" className="text-gray-400 hover:text-brand-teal transition-colors">Corporate Events</Link></li>
-              <li><Link to="/services" className="text-gray-400 hover:text-brand-teal transition-colors">Weddings & Celebrations</Link></li>
-              <li><Link to="/services" className="text-gray-400 hover:text-brand-teal transition-colors">Exhibitions</Link></li>
-              <li><Link to="/services" className="text-gray-400 hover:text-brand-teal transition-colors">Stage Production</Link></li>
-              <li><Link to="/services" className="text-gray-400 hover:text-brand-teal transition-colors">Artist Management</Link></li>
+              <li><span className="text-gray-600 cursor-default">Corporate Events</span></li>
+              <li><span className="text-gray-600 cursor-default">Weddings & Celebrations</span></li>
+              <li><span className="text-gray-600 cursor-default">Exhibitions</span></li>
+              <li><span className="text-gray-600 cursor-default">Stage Production</span></li>
+              <li><span className="text-gray-600 cursor-default">Artist Management</span></li>
             </ul>
           </div>
 
@@ -91,8 +91,8 @@ const Footer = () => {
         <div className="pt-8 border-t border-white/10 text-center text-gray-500 text-sm flex flex-col md:flex-row justify-between items-center">
           <p>&copy; {new Date().getFullYear()} Captive Events. All rights reserved.</p>
           <div className="space-x-4 mt-4 md:mt-0">
-            <Link to="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link to="#" className="hover:text-white transition-colors">Terms of Service</Link>
+            <span className="text-gray-600 cursor-default">Privacy Policy</span>
+            <span className="text-gray-600 cursor-default">Terms of Service</span>
           </div>
         </div>
       </div>

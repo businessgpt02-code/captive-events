@@ -22,6 +22,7 @@ const MagneticButton = ({ children, variant = 'primary', className = '', onClick
   const variants = {
     primary: "bg-brand-orange text-black",
     outline: "border border-white/20 text-white hover:bg-white hover:text-black",
+    gradient: "bg-gradient-to-r from-red-600 via-orange-500 to-yellow-400 text-white border border-white/20",
   };
 
   return (
