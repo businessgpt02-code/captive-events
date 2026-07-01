@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const About = () => {
   const [activeSection, setActiveSection] = useState(null);
@@ -86,9 +86,6 @@ const About = () => {
     }
   ];
 
-  const { scrollYProgress } = useScroll();
-  const yImage = useTransform(scrollYProgress, [0, 1], [0, -100]);
-
   return (
     <div className="bg-brand-dark min-h-screen overflow-hidden">
       {/* Hero Section */}
@@ -167,7 +164,7 @@ const About = () => {
             
             {/* Section Header */}
             <div className="text-center mb-12">
-              <span className="text-xs font-bold uppercase tracking-[0.4em] text-brand-orange block mb-3">
+              <span className="text-xs font-bold uppercase tracking-[0.4em] text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-orange block mb-3">
                 LEGACY CHRONOLOGY
               </span>
               <h2 className="text-4xl md:text-5xl font-display font-black uppercase tracking-tight text-white">
@@ -181,7 +178,6 @@ const About = () => {
               {/* Left Key Indicator (Genesis) */}
               <div 
                 className="order-2 lg:order-1 flex flex-col items-center lg:items-end cursor-pointer group select-none"
-                onClick={() => setActiveSection('genesis')}
                 onMouseEnter={() => setActiveSection('genesis')}
               >
                 <div className="text-center lg:text-right space-y-2">
@@ -191,7 +187,7 @@ const About = () => {
                     1996
                   </div>
                   <div className={`text-xs font-bold uppercase tracking-[0.3em] transition-colors duration-300 ${
-                    activeSection !== 'evolution' ? 'text-brand-orange' : 'text-gray-500'
+                    activeSection !== 'evolution' ? 'text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-orange' : 'text-gray-500'
                   }`}>
                     Genesis of Excellence
                   </div>
@@ -275,17 +271,16 @@ const About = () => {
               {/* Right Key Indicator (Evolution) */}
               <div 
                 className="order-3 flex flex-col items-center lg:items-start cursor-pointer group select-none"
-                onClick={() => setActiveSection('evolution')}
                 onMouseEnter={() => setActiveSection('evolution')}
               >
                 <div className="text-center lg:text-left space-y-2">
                   <div className={`text-5xl md:text-6xl font-display font-black tracking-tighter leading-none transition-colors duration-500 ${
-                    activeSection === 'evolution' ? 'text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-yellow drop-shadow-[0_0_20px_rgba(255,140,0,0.3)]' : 'text-white/20 group-hover:text-white/50'
+                    activeSection === 'evolution' ? 'text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-orange drop-shadow-[0_0_20px_rgba(255,140,0,0.3)]' : 'text-white/20 group-hover:text-white/50'
                   }`}>
                     2026
                   </div>
                   <div className={`text-xs font-bold uppercase tracking-[0.3em] transition-colors duration-300 ${
-                    activeSection === 'evolution' ? 'text-brand-orange' : 'text-gray-500'
+                    activeSection === 'evolution' ? 'text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-orange' : 'text-gray-500'
                   }`}>
                     Setting the Premium Standard
                   </div>
@@ -317,7 +312,7 @@ const About = () => {
                   Telemetry Stream: {activeSection === 'evolution' ? 'evolution_node' : 'genesis_node'}
                 </div>
                 
-                <h4 className="text-xl md:text-3xl font-display font-black uppercase text-white tracking-wide">
+                <h4 className="text-xl md:text-3xl font-display font-black uppercase text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-orange tracking-wide">
                   {activeSection === 'evolution' ? 'SETTING THE PREMIUM STANDARD' : 'THE GENESIS OF EXCELLENCE'}
                 </h4>
                 
@@ -360,7 +355,6 @@ const About = () => {
             <motion.div 
               onMouseEnter={() => setActiveSection('mission')}
               onMouseLeave={() => setActiveSection(null)}
-              onClick={() => setActiveSection(activeSection === 'mission' ? null : 'mission')}
               animate={{ 
                 flexGrow: activeSection === 'mission' ? 2 : activeSection === 'vision' ? 0.6 : 1.2
               }}
@@ -430,7 +424,6 @@ const About = () => {
             <motion.div 
               onMouseEnter={() => setActiveSection('vision')}
               onMouseLeave={() => setActiveSection(null)}
-              onClick={() => setActiveSection(activeSection === 'vision' ? null : 'vision')}
               animate={{ 
                 flexGrow: activeSection === 'vision' ? 2 : activeSection === 'mission' ? 0.6 : 1.2
               }}
@@ -517,7 +510,7 @@ const About = () => {
 
           <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16 md:mb-24">
-              <span className="text-xs font-bold uppercase tracking-[0.4em] text-brand-orange block mb-3">
+              <span className="text-xs font-bold uppercase tracking-[0.4em] text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-orange block mb-3">
                 THE CAPTIVE DNA
               </span>
               <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight text-white">
@@ -639,7 +632,6 @@ const About = () => {
                       className="absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer z-30 group"
                       style={{ top: node.top, left: node.left }}
                       onMouseEnter={() => setActiveValue(node.index)}
-                      onClick={() => setActiveValue(node.index)}
                     >
                       {/* Interactive Ring */}
                       <div className="relative flex items-center justify-center">
@@ -662,7 +654,7 @@ const About = () => {
                           node.top === '85%' ? 'bottom-12 left-1/2 -translate-x-1/2' :
                           node.left === '85%' ? 'left-14 top-1/2 -translate-y-1/2' :
                           'right-14 top-1/2 -translate-y-1/2'
-                        } ${isActive ? 'text-brand-orange scale-105' : 'text-white/40 group-hover:text-white/80'}`}>
+                        } ${isActive ? 'text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-orange scale-105' : 'text-white/40 group-hover:text-white/80'}`}>
                           {node.label}
                         </div>
                       </div>
@@ -696,10 +688,10 @@ const About = () => {
 
                   {/* Title & Subtitle */}
                   <div>
-                    <h3 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight text-white mb-2">
+                    <h3 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-orange mb-2">
                       {coreValues[activeValue].title}
                     </h3>
-                    <p className="text-brand-orange text-xs md:text-sm font-bold uppercase tracking-[0.3em]">
+                    <p className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-orange text-xs md:text-sm font-bold uppercase tracking-[0.3em]">
                       {coreValues[activeValue].subtitle}
                     </p>
                   </div>
@@ -726,7 +718,7 @@ const About = () => {
           <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center">
             <div className="mb-12 md:mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
               <div>
-                <span className="text-xs font-bold uppercase tracking-[0.4em] text-brand-orange block mb-3">
+                <span className="text-xs font-bold uppercase tracking-[0.4em] text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-orange block mb-3">
                   THE VISIONARIES
                 </span>
                 <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight text-white">
@@ -831,22 +823,23 @@ const About = () => {
 
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row items-center gap-6 w-full sm:w-auto">
-                <div className="group relative inline-flex items-center justify-center w-full sm:w-auto cursor-default">
+                <Link to="/contact" className="group relative inline-flex items-center justify-center w-full sm:w-auto cursor-pointer">
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-brand-red via-brand-orange to-brand-yellow blur-xl opacity-30 transition-all duration-700"></div>
                   <div
-                    className="relative px-10 py-5 bg-gradient-to-r from-brand-red via-brand-orange to-brand-yellow rounded-full overflow-hidden flex items-center justify-center gap-3 border border-white/20 shadow-2xl w-full sm:w-auto"
+                    className="relative px-10 py-5 bg-[linear-gradient(90deg,#dc2626_0%,#f97316_52%,#facc15_100%)] rounded-full overflow-hidden flex items-center justify-center gap-3 shadow-2xl w-full sm:w-auto"
                   >
                     <span className="relative z-10 text-white font-bold tracking-wide uppercase text-sm drop-shadow-md">Start Planning</span>
                     <ArrowRight size={20} className="relative z-10 text-white drop-shadow-md" />
                   </div>
-                </div>
+                </Link>
 
-                <div className="group relative inline-flex items-center gap-2 cursor-default text-gray-500 py-3 px-4 font-bold uppercase tracking-wider text-sm">
-                  <span>Explore Portfolio</span>
-                  <span className="relative overflow-hidden w-5 h-5 flex items-center justify-center">
+                <Link to="/portfolio" className="group relative inline-flex items-center justify-center gap-3 cursor-pointer text-gray-500 hover:text-white transition-all duration-300 py-5 px-10 font-bold uppercase tracking-wider text-sm rounded-full overflow-hidden w-full sm:w-auto hover:shadow-[0_10px_30px_rgba(249,115,22,0.28)]">
+                  <span className="absolute inset-0 rounded-full bg-[linear-gradient(90deg,#dc2626_0%,#f97316_52%,#facc15_100%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
+                  <span className="relative z-10">Explore Portfolio</span>
+                  <span className="relative z-10 overflow-hidden w-5 h-5 flex items-center justify-center">
                     <ArrowRight size={16} />
                   </span>
-                </div>
+                </Link>
               </div>
             </div>
 

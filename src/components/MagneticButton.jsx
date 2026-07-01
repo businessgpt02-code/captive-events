@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 
-const MagneticButton = ({ children, variant = 'primary', className = '', onClick, ...props }) => {
+const MagneticButton = ({ children, variant = 'primary', className = '', ...props }) => {
   const ref = useRef(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
@@ -21,8 +21,8 @@ const MagneticButton = ({ children, variant = 'primary', className = '', onClick
   
   const variants = {
     primary: "bg-brand-orange text-black",
-    outline: "border border-white/20 text-white hover:bg-white hover:text-black",
-    gradient: "bg-gradient-to-r from-red-600 via-orange-500 to-yellow-400 text-white border border-white/20",
+    outline: "border border-white/20 text-white hover:border-transparent hover:bg-[linear-gradient(90deg,#dc2626_0%,#f97316_52%,#facc15_100%)] hover:text-white hover:shadow-[0_10px_30px_rgba(249,115,22,0.28)]",
+    gradient: "bg-[linear-gradient(90deg,#dc2626_0%,#f97316_52%,#facc15_100%)] text-white shadow-[0_10px_30px_rgba(249,115,22,0.28)]",
   };
 
   return (
@@ -33,7 +33,6 @@ const MagneticButton = ({ children, variant = 'primary', className = '', onClick
       animate={{ x: position.x, y: position.y }}
       transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
       className={`${baseStyle} ${variants[variant]} ${className}`}
-      onClick={onClick}
       {...props}
     >
       <span className="relative z-10 flex items-center justify-center gap-2">{children}</span>

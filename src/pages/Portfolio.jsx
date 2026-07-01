@@ -1,23 +1,10 @@
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const Portfolio = () => {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-  });
-
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]); // 4 items, scroll 75% to see last
-
-  const projects = [
-    { title: "Global Summit", type: "Corporate", img: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1600" },
-    { title: "Royal Gardens", type: "Wedding", img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1600" },
-    { title: "Auto Expo", type: "Exhibition", img: "https://images.unsplash.com/photo-1551043047-1d2adf00f3fd?q=80&w=1600" },
-    { title: "Fashion Gala", type: "Corporate", img: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=1600" },
-  ];
+  const portfolioImages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12];
 
   return (
-    <div className="bg-brand-dark pt-32">
+    <div className="bg-brand-dark pt-32 pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
         <motion.h1 
           initial={{ opacity: 0, x: -50 }}
@@ -29,25 +16,24 @@ const Portfolio = () => {
         </motion.h1>
       </div>
 
-      <section ref={containerRef} className="h-[300vh] relative">
-        <div className="sticky top-0 h-screen flex items-center overflow-hidden">
-          <motion.div style={{ x }} className="flex gap-10 px-4 md:px-20">
-            {projects.map((project, idx) => (
-              <div key={idx} className="w-[85vw] md:w-[60vw] h-[70vh] shrink-0 relative group rounded-3xl overflow-hidden cursor-none">
-                <div 
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110"
-                  style={{ backgroundImage: `url(${project.img})` }}
-                ></div>
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-500"></div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-                
-                <div className="absolute bottom-0 left-0 p-10 md:p-16">
-                  <span className="text-brand-orange font-bold tracking-widest uppercase mb-4 block">{project.type}</span>
-                  <h2 className="text-5xl md:text-7xl font-display font-black text-white">{project.title}</h2>
-                </div>
-              </div>
-            ))}
-          </motion.div>
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+          {portfolioImages.map((imageNumber, idx) => (
+            <motion.article
+              key={imageNumber}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, delay: idx * 0.08 }}
+              className="group relative overflow-hidden rounded-2xl bg-white/5"
+            >
+              <img
+                src={`/portfolio/${imageNumber}.png`}
+                alt={`Captive Events portfolio ${imageNumber}`}
+                className="h-auto w-full object-contain transition-transform duration-700 group-hover:scale-[1.02]"
+              />
+            </motion.article>
+          ))}
         </div>
       </section>
     </div>

@@ -39,39 +39,37 @@ const Navbar = () => {
       className="fixed top-4 left-0 right-0 z-50 px-4 md:px-0 flex justify-center w-full"
     >
       <div className="glass-heavy px-6 py-2.5 rounded-full flex justify-between items-center w-full max-w-6xl shadow-2xl">
-        <Link to="/" className="flex items-center mr-8">
+        <Link to="/" className="flex items-center mr-8 cursor-pointer">
           <img src="/logo.png" alt="Captive Events Logo" className="h-8 md:h-12 w-auto object-contain" />
         </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
           {navLinks.map((link) => {
-            const isFunctional = link.path === '/' || link.path === '/about';
-            return isFunctional ? (
+            return (
               <Link
                 key={link.name}
                 to={link.path}
-                className={`font-sans font-medium transition-colors hover:text-brand-orange text-sm uppercase tracking-widest ${
-                  location.pathname === link.path ? 'text-brand-orange' : 'text-gray-300'
+                className={`font-sans font-medium transition-colors text-sm uppercase tracking-widest hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-brand-red hover:to-brand-orange ${
+                  location.pathname === link.path ? 'text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-orange' : 'text-gray-300'
                 }`}
               >
                 {link.name}
               </Link>
-            ) : (
-              <span
-                key={link.name}
-                className="font-sans font-medium text-gray-500 cursor-default text-sm uppercase tracking-widest"
-              >
-                {link.name}
-              </span>
             );
           })}
-          <MagneticButton variant="gradient" className="py-2 px-5 text-sm cursor-default">Book Now</MagneticButton>
+          <Link to="/contact">
+            <MagneticButton variant="gradient" className="py-2 px-5 text-sm">Book Now</MagneticButton>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center">
-          <button onClick={() => setIsOpen(!isOpen)} className="text-white hover:text-brand-orange focus:outline-none">
+          <button 
+            onClick={() => setIsOpen(!isOpen)} 
+            className="text-white hover:text-brand-orange focus:outline-none cursor-pointer"
+            aria-label="Toggle menu"
+          >
             {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
@@ -81,29 +79,23 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden absolute top-20 left-4 right-4 glass-heavy rounded-2xl border border-white/10 p-6 flex flex-col space-y-4 shadow-2xl">
           {navLinks.map((link) => {
-            const isFunctional = link.path === '/' || link.path === '/about';
-            return isFunctional ? (
+            return (
               <Link
                 key={link.name}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className={`text-lg font-display font-bold uppercase tracking-wider ${
-                  location.pathname === link.path ? 'text-brand-orange' : 'text-white hover:text-brand-teal'
+                className={`text-lg font-display font-bold uppercase tracking-wider hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-brand-red hover:to-brand-orange ${
+                  location.pathname === link.path ? 'text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-orange' : 'text-white'
                 }`}
               >
                 {link.name}
               </Link>
-            ) : (
-              <span
-                key={link.name}
-                className="text-lg font-display font-bold uppercase tracking-wider text-gray-600 cursor-default"
-              >
-                {link.name}
-              </span>
             );
           })}
           <div className="pt-4 mt-2 border-t border-white/10">
-            <MagneticButton variant="gradient" className="w-full cursor-default">Book Now</MagneticButton>
+            <Link to="/contact" onClick={() => setIsOpen(false)}>
+              <MagneticButton variant="gradient" className="w-full">Book Now</MagneticButton>
+            </Link>
           </div>
         </div>
       )}

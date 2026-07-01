@@ -38,17 +38,6 @@ const testimonials = [
   }
 ];
 
-const partners = [
-  "Aura Luxe",
-  "Nova Studios",
-  "Zenith Group",
-  "Urban Hive",
-  "Velora Events",
-  "Crown Media",
-  "LuxeLine",
-  "Ember Works"
-];
-
 const Home = () => {
   const { scrollY } = useScroll();
   const yHero = useTransform(scrollY, [0, 1000], [0, 400]);
@@ -103,7 +92,7 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
           >
-            <p className="mb-4 text-xs md:text-sm font-bold uppercase tracking-[0.35em] text-brand-orange">
+            <p className="mb-4 text-xs md:text-sm font-bold uppercase tracking-[0.35em] text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-orange">
               Luxury Event Planning & Production
             </p>
             <h1
@@ -151,22 +140,22 @@ const Home = () => {
             transition={{ duration: 1, delay: 1.2 }}
             className="mt-10 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6"
           >
-            <div
-              className="group relative inline-flex items-center justify-center cursor-default w-full sm:w-auto"
-            >
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-red-600 via-orange-500 to-yellow-400 blur-xl opacity-30 transition-all duration-700"></div>
+            <Link to="/contact" className="w-full sm:w-auto group relative inline-flex items-center justify-center cursor-pointer">
+              <div className="absolute inset-0 rounded-full bg-[linear-gradient(90deg,#dc2626_0%,#f97316_52%,#facc15_100%)] blur-xl opacity-30 transition-all duration-700"></div>
               
               <div
-                className="relative px-10 py-5 bg-gradient-to-r from-red-600 via-orange-500 to-yellow-400 rounded-full overflow-hidden flex items-center justify-center gap-3 border border-white/20 shadow-2xl w-full sm:w-auto"
+                className="relative px-10 py-5 bg-[linear-gradient(90deg,#dc2626_0%,#f97316_52%,#facc15_100%)] rounded-full overflow-hidden flex items-center justify-center gap-3 shadow-2xl w-full sm:w-auto"
               >
                 <span className="relative z-10 text-white font-bold tracking-wide uppercase text-sm drop-shadow-md">Start Planning</span>
                 <ArrowRight size={20} className="relative z-10 text-white drop-shadow-md" />
               </div>
-            </div>
-            <MagneticButton variant="outline" className="text-base w-full sm:w-auto px-8 py-4 flex items-center space-x-2">
-              <Play size={18} className="fill-current" />
-              <span>Showreel</span>
-            </MagneticButton>
+            </Link>
+            <Link to="/portfolio" className="w-full sm:w-auto">
+              <MagneticButton variant="outline" className="text-base w-full sm:w-auto px-8 py-4 flex items-center space-x-2">
+                <Play size={18} className="fill-current" />
+                <span>Showreel</span>
+              </MagneticButton>
+            </Link>
           </motion.div>
         </motion.div>
       </section>
@@ -189,7 +178,7 @@ const Home = () => {
               transition={{ duration: 0.8 }}
               className="flex flex-col items-start"
             >
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-brand-orange mb-4 inline-block drop-shadow-md ml-2">
+              <span className="text-xs font-bold uppercase tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-orange mb-4 inline-block drop-shadow-md ml-2">
                 WHO WE ARE
               </span>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black uppercase tracking-tight text-white mb-4 leading-[1.1]">
@@ -210,19 +199,19 @@ const Home = () => {
                 <div className="pt-6 border-t border-white/10 mt-8">
                   <p className="text-xl text-white font-display font-bold italic tracking-wide">
                     We don't simply organize events. <br/>
-                    <span className="text-brand-orange mt-2 inline-block not-italic text-2xl">We create moments people remember.</span>
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-orange mt-2 inline-block not-italic text-2xl">We create moments people remember.</span>
                   </p>
                 </div>
               </div>
 
               {/* Premium CTA Button */}
-              <Link to="/about" className="group relative inline-flex items-center justify-center mt-12 cursor-none">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-red-600 via-orange-500 to-yellow-400 blur-xl opacity-40 group-hover:opacity-100 group-hover:blur-2xl transition-all duration-700"></div>
+              <Link to="/about" className="group relative inline-flex items-center justify-center mt-12 cursor-pointer">
+                <div className="absolute inset-0 rounded-full bg-[linear-gradient(90deg,#dc2626_0%,#f97316_52%,#facc15_100%)] blur-xl opacity-40 group-hover:opacity-100 group-hover:blur-2xl transition-all duration-700"></div>
                 
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="relative px-10 py-5 bg-gradient-to-r from-red-600 via-orange-500 to-yellow-400 rounded-full overflow-hidden flex items-center gap-3 border border-white/20 shadow-2xl"
+                  className="relative px-10 py-5 bg-[linear-gradient(90deg,#dc2626_0%,#f97316_52%,#facc15_100%)] rounded-full overflow-hidden flex items-center gap-3 shadow-2xl"
                 >
                   <div className="absolute inset-0 -translate-x-full group-hover:animate-shimmer bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12"></div>
                   
@@ -347,10 +336,10 @@ const Home = () => {
                 transition={{ duration: 0.6, delay: 0.2 + idx * 0.1 }}
                 className="glass p-8 rounded-2xl border border-white/5 hover:border-brand-orange/30 hover:bg-white/[0.04] transition-all duration-300 group text-center"
               >
-                <h4 className="text-2xl lg:text-3xl font-display font-bold text-white mb-2 group-hover:text-brand-orange transition-colors duration-300">
+                <h4 className="text-2xl lg:text-3xl font-display font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-brand-red group-hover:to-brand-orange transition-colors duration-300">
                   {card.title}
                 </h4>
-                <p className="text-gray-400 text-sm font-medium uppercase tracking-widest group-hover:text-gray-200 transition-colors duration-300">
+                <p className="text-gray-400 text-sm font-medium uppercase tracking-widest group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-brand-red group-hover:to-brand-orange transition-colors duration-300">
                   {card.desc}
                 </p>
               </motion.div>
@@ -453,16 +442,16 @@ const Home = () => {
           </div>
 
           <div className="mt-12 flex justify-center">
-            <div className="group relative inline-flex items-center justify-center cursor-default">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-red-600 via-orange-500 to-yellow-400 blur-xl opacity-30 transition-all duration-700"></div>
+            <Link to="/services" className="group relative inline-flex items-center justify-center cursor-pointer">
+              <div className="absolute inset-0 rounded-full bg-[linear-gradient(90deg,#dc2626_0%,#f97316_52%,#facc15_100%)] blur-xl opacity-30 transition-all duration-700"></div>
               
               <div
-                className="relative px-10 py-5 bg-gradient-to-r from-red-600 via-orange-500 to-yellow-400 rounded-full overflow-hidden flex items-center gap-3 border border-white/20 shadow-2xl"
+                className="relative px-10 py-5 bg-[linear-gradient(90deg,#dc2626_0%,#f97316_52%,#facc15_100%)] rounded-full overflow-hidden flex items-center gap-3 shadow-2xl"
               >
                 <span className="relative z-10 text-white font-bold tracking-wide uppercase text-sm drop-shadow-md">View All Services</span>
                 <ArrowRight size={20} className="relative z-10 text-white drop-shadow-md" />
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </section>
@@ -536,62 +525,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Partners Section */}
-      <section className="pt-10 pb-12 relative z-10 overflow-hidden border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <span className="text-xs font-bold uppercase tracking-[0.25em] text-brand-orange mb-3 inline-block">Our Partners</span>
-            <h2 className="text-4xl md:text-5xl font-display font-black uppercase tracking-tight text-white mb-6">
-              Trusted by <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-orange">Leading Brands</span>
-            </h2>
-            <p className="text-gray-300 text-lg max-w-2xl mx-auto font-medium tracking-wide">
-              We collaborate with premium brands, venues, suppliers, and creative partners to deliver unforgettable event experiences.
-            </p>
-          </motion.div>
-        </div>
-
-        {/* Partners Marquees */}
-        <div className="relative w-full overflow-hidden flex flex-col gap-6 mask-gradient">
-          {/* Row 1: Sliding Left */}
-          <div className="animate-marquee flex gap-6 hover:[animation-play-state:paused] py-2">
-            {[...partners.slice(0, 4), ...partners.slice(0, 4), ...partners.slice(0, 4), ...partners.slice(0, 4)].map((partner, idx) => (
-              <div
-                key={idx}
-                className="glass p-6 md:p-8 rounded-2xl border border-white/10 w-[200px] md:w-[250px] shrink-0 flex items-center justify-center text-center group hover:-translate-y-1 hover:shadow-[0_0_30px_-5px_rgba(255,140,0,0.3)] hover:border-brand-orange/40 transition-all duration-300 relative overflow-hidden h-24 md:h-28"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-red/5 via-brand-orange/5 to-brand-yellow/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <h3 className="text-lg md:text-xl font-display font-bold text-gray-400 group-hover:text-white transition-colors duration-300 relative z-10">
-                  {partner}
-                </h3>
-              </div>
-            ))}
-          </div>
-
-          {/* Row 2: Sliding Right */}
-          <div className="animate-marquee-reverse flex gap-6 hover:[animation-play-state:paused] py-2">
-            {[...partners.slice(4), ...partners.slice(4), ...partners.slice(4), ...partners.slice(4)].map((partner, idx) => (
-              <div
-                key={idx}
-                className="glass p-6 md:p-8 rounded-2xl border border-white/10 w-[200px] md:w-[250px] shrink-0 flex items-center justify-center text-center group hover:-translate-y-1 hover:shadow-[0_0_30px_-5px_rgba(255,140,0,0.3)] hover:border-brand-orange/40 transition-all duration-300 relative overflow-hidden h-24 md:h-28"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-red/5 via-brand-orange/5 to-brand-yellow/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <h3 className="text-lg md:text-xl font-display font-bold text-gray-400 group-hover:text-white transition-colors duration-300 relative z-10">
-                  {partner}
-                </h3>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Testimonials Section */}
-      <section className="pt-8 pb-10 relative z-10 overflow-hidden border-t border-white/5">
+      <section className="pt-14 pb-10 relative z-10 overflow-hidden border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -600,7 +535,7 @@ const Home = () => {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <span className="text-xs font-bold uppercase tracking-[0.25em] text-brand-orange mb-3 inline-block">Success Stories</span>
+            <span className="text-xs font-bold uppercase tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-orange mb-3 inline-block">Success Stories</span>
             <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tight text-white">
               WHAT OUR <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-orange">CLIENTS SAY</span>
             </h2>
@@ -675,22 +610,23 @@ const Home = () => {
 
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row items-center gap-6 w-full sm:w-auto">
-                <div className="group relative inline-flex items-center justify-center w-full sm:w-auto cursor-default">
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-brand-red via-brand-orange to-brand-yellow blur-xl opacity-30 transition-all duration-700"></div>
+                <Link to="/contact" className="group relative inline-flex items-center justify-center w-full sm:w-auto cursor-pointer">
+                  <div className="absolute inset-0 rounded-full bg-[linear-gradient(90deg,#dc2626_0%,#f97316_52%,#facc15_100%)] blur-xl opacity-30 transition-all duration-700"></div>
                   <div
-                    className="relative px-10 py-5 bg-gradient-to-r from-brand-red via-brand-orange to-brand-yellow rounded-full overflow-hidden flex items-center justify-center gap-3 border border-white/20 shadow-2xl w-full sm:w-auto"
+                    className="relative px-10 py-5 bg-[linear-gradient(90deg,#dc2626_0%,#f97316_52%,#facc15_100%)] rounded-full overflow-hidden flex items-center justify-center gap-3 shadow-2xl w-full sm:w-auto"
                   >
                     <span className="relative z-10 text-white font-bold tracking-wide uppercase text-sm drop-shadow-md">Start Planning</span>
                     <ArrowRight size={20} className="relative z-10 text-white drop-shadow-md" />
                   </div>
-                </div>
+                </Link>
 
-                <div className="group relative inline-flex items-center gap-2 cursor-default text-gray-500 py-3 px-4 font-bold uppercase tracking-wider text-sm">
-                  <span>Explore Portfolio</span>
-                  <span className="relative overflow-hidden w-5 h-5 flex items-center justify-center">
+                <Link to="/portfolio" className="group relative inline-flex items-center justify-center gap-3 cursor-pointer text-gray-500 hover:text-white transition-all duration-300 py-5 px-10 font-bold uppercase tracking-wider text-sm rounded-full overflow-hidden w-full sm:w-auto hover:shadow-[0_10px_30px_rgba(249,115,22,0.28)]">
+                  <span className="absolute inset-0 rounded-full bg-[linear-gradient(90deg,#dc2626_0%,#f97316_52%,#facc15_100%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
+                  <span className="relative z-10">Explore Portfolio</span>
+                  <span className="relative z-10 overflow-hidden w-5 h-5 flex items-center justify-center">
                     <ArrowRight size={16} />
                   </span>
-                </div>
+                </Link>
               </div>
             </div>
 
@@ -726,7 +662,7 @@ const Home = () => {
                   <img src="/logo.png" alt="Captive Events" className="w-full h-full object-contain filter brightness-110 contrast-125" />
                 </div>
                 {/* Back-glow aura that scales up on hover */}
-                <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-brand-red via-brand-orange to-brand-yellow opacity-30 blur-md group-hover:opacity-75 group-hover:scale-110 transition-all duration-700 pointer-events-none"></div>
+                <div className="absolute -inset-1 rounded-full bg-[linear-gradient(90deg,#dc2626_0%,#f97316_52%,#facc15_100%)] opacity-30 blur-md group-hover:opacity-75 group-hover:scale-110 transition-all duration-700 pointer-events-none"></div>
               </motion.div>
 
               {/* Floating coordinates / technical blueprint labels */}

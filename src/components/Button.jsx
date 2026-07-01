@@ -8,7 +8,10 @@ const Button = ({ children, variant = 'primary', className = '', ...props }) => 
   };
 
   return (
-    <button className={`${baseStyle} ${variants[variant]} ${className}`} {...props}>
+    <button
+      className={`${baseStyle} ${variants[variant]} ${className}`}
+      {...props}
+    >
       {children}
     </button>
   );
